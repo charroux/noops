@@ -1,7 +1,10 @@
 # Deploiement d'un conteneur MySQL dans un cluster Kubernetes 
 
 ## 1)deploiement du serveur MySQL
-
+### Prérequis
+```bash
+minikube start
+```
 ### Descritif des fichiers : 
 
 #### mysql-secret.yaml
@@ -40,7 +43,7 @@ kubectl get deployments
 kubectl get pods
 kubectl get services
 ```
-## 3) Connexion au server mysql
+## 3) Connexion au server MySQL
 ### Le service de type ClusterIP 
 ```bash
 kubectl exec --stdin --tty <Id du pod> -- mysql -ptest1234
