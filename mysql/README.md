@@ -5,7 +5,7 @@
 ```bash
 minikube start
 ```
-### Descritif des fichiers : 
+### Descriptif des fichiers : 
 
 #### mysql-secret.yaml
 Ce fichier définit le mot de passe qui sera utilisé lors de la connexion au serveur MySQL.
@@ -25,6 +25,7 @@ kubectl apply -f mysql-deployment.yaml
 ```
 ### Création de service
 Il existe deux fichiers de création de service, il n'est pas nécessaire d'exécuter les deux.
+
 Exécuter uniquement celui qui correspond le mieux à votre besoin.
 #### Le service de type ClusterIP 
 Le fichier mysql-serviceClusterIp.yaml crée un service 'mysql' qui est uniquement accessible dans le cluster. 
