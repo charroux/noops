@@ -1,18 +1,17 @@
-# Deploiement d'un conteneur Mysql dans un cluster Kubernetes 
+# Deploiement d'un conteneur MySQL dans un cluster Kubernetes 
 
-## 1)deploiement du serveur MYSQL
-
+## 1)deploiement du serveur MySQL
 
 ### Descritif des fichiers : 
 
 #### mysql-secret.yaml
-Ce fichier définit le mot de passe qui sera utilisé lors de la connexion au serveur MYSQL.
+Ce fichier définit le mot de passe qui sera utilisé lors de la connexion au serveur MySQL.
 ```bash
 kubectl apply -f mysql-secret.yaml
 ```
 
 #### mysql-storage.yaml
-Ce fichier définit les volumes qui vont être utilisés par le serveur MYSQL pour stocker les données. 
+Ce fichier définit les volumes qui vont être utilisés par le serveur MySQL pour stocker les données. 
 ```bash
 kubectl apply -f mysql-storage.yaml
 ```
