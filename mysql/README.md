@@ -1,24 +1,65 @@
-# ⚙ Deploiement d'un conteneur Mysql dans un cluster Kubernetes 
+# Deploiement d'un conteneur Mysql dans un cluster Kubernetes 
 
-## 1) Deploiement du serveur MYSQL 
+## 1)deploiement du serveur MYSQL
 
 
-### 💡 Descriptif des fichiers : 
+### Descritif des fichiers : 
 
-**mysql-secret.yaml** : Ce fichier décrit les variables d'environnement utilisé lors du déploiement du serveur MYSQL 
-
-**mysql-storage.yaml** : Ce fichier décrit les volumes qui vont être utilisés par le serveur MYSQL pour stocker les données 
-
-**mysql-deployment.yaml**: Ce fichier décrit l'ensemble des conteneurs à déployer, en l'espèce : MYSQL Serveur
-
-mysql-
-
-### Voici les commandes utilisées pour déployer notre application à partir de nos fichiers de configuration
+#### mysql-secret.yaml
+Ce fichier définit le mot de passe qui sera utilisé lors de la connexion au serveur MYSQL.
+Pour l'exécuter il faut faire : 
 ```bash
 kubectl apply -f mysql-secret.yaml
-kubectl apply -f mysql-storage.yaml
-kubectl apply -f mysql-deployment.yaml
-kubectl get deployment
-kubectl get pods
 ```
+
+#### mysql-storage.yaml
+Ce fichier définit les volumes qui vont être utilisés par le serveur MYSQL pour stocker les données. 
+Pour l'exécuter il faut faire :
+```bash
+kubectl apply -f mysql-storage.yaml
+```
+#### mysql-deployment.yaml
+Ce fichier définit le conteneur mysql à déployement sur cluster kubernetes.
+Pour l'exécuter il faut faire : 
+```bash
+kubectl apply -f mysql-deployment.yaml
+```
+### Création de service
+Il existe deux fichiers de création de service, il n'est pas nécessaire d'exécuter les deux.
+Exécuter uniquement celui qui correspond le mieux à votre besoin.
+#### Le service de type ClusterIP 
+Le fichier mysql-serviceClusterIp.yaml crée un service 'mysql' qui est uniquement accessible dans le cluster.
+Pour l'exécuter il faut faire : 
+```bash
+kubectl apply -f mysql-serviceClusterIp.yaml
+```
+#### Le service de type NodePort
+Le fichier mysql-serviceNodePort.yaml crée un service 'mysql' qui est accessible à la fois à l'intérieur et à l'extérieur du cluster.
+Pour l'exécuter il faut faire : 
+```bash
+kubectl apply -f mysql-serviceNodePort.yaml
+```
+
+## 2) vérification des configurations
+```bash
+kubectl get deployments
+kubectl get pods
+kubectl get services
+```
+## 3) Connexion au server mysql
+### Le service de type ClusterIP 
+```bash
+kubectl exec --stdin --tty <Id du pod> -- mysql -ptest1234
+```
+### Le service de type NodePort
+```bash
+minikube service mysql 
+```
+ou 
+```bash
+minikube service mysql --url
+```
+
+
+
 
