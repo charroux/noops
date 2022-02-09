@@ -5,9 +5,12 @@
 
 ### Descritif des fichiers : 
 
-mysql-secret.yaml : Ce fichier décrit les variables d'environnement utilisés lors du déploiement du serveur MYSQL 
-mysql-storage.yaml : Ce fichier décrit les volumes qui vont être utilisés par le serveur MYSQL pour stocker les données 
-mysql-deployment.yaml : Ce fichier décrit l'ensemble des conteneurs à déployement, en l'espèce : MYSQL Serveur
+**mysql-secret.yaml** : Ce fichier décrit les variables d'environnement utilisés lors du déploiement du serveur MYSQL 
+
+**mysql-storage.yaml** : Ce fichier décrit les volumes qui vont être utilisés par le serveur MYSQL pour stocker les données 
+
+**mysql-deployment.yaml**: Ce fichier décrit l'ensemble des conteneurs à déployement, en l'espèce : MYSQL Serveur
+
 mysql-
 
 ### Voici les commandes utilisées pour déployer notre application à partir de nos fichiers de configuration
