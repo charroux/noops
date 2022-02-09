@@ -9,7 +9,7 @@
 
 **mysql-storage.yaml** : Ce fichier décrit les volumes qui vont être utilisés par le serveur MYSQL pour stocker les données 
 
-**mysql-deployment.yaml**: Ce fichier décrit l'ensemble des conteneurs à déployement, en l'espèce : MYSQL Serveur
+**mysql-deployment.yaml**: Ce fichier décrit l'ensemble des conteneurs à déployer, en l'espèce : MYSQL Serveur
 
 mysql-
 
