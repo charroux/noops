@@ -5,7 +5,7 @@
 
 ### 💡 Descriptif des fichiers : 
 
-**mysql-secret.yaml** : Ce fichier décrit les variables d'environnement utilisés lors du déploiement du serveur MYSQL 
+**mysql-secret.yaml** : Ce fichier décrit les variables d'environnement utilisé lors du déploiement du serveur MYSQL 
 
 **mysql-storage.yaml** : Ce fichier décrit les volumes qui vont être utilisés par le serveur MYSQL pour stocker les données 
 
