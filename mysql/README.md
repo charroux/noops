@@ -14,7 +14,7 @@ kubectl apply -f mysql-secret.yaml
 ```
 
 #### mysql-storage.yaml
-Ce fichier définit les volumes qui vont être utilisés par le serveur MySQL pour stocker les données. 
+Ce fichier définit les volumes qui vont être utilisé par le serveur MySQL pour stocker les données. 
 ```bash
 kubectl apply -f mysql-storage.yaml
 ```
