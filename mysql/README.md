@@ -40,6 +40,9 @@ kubectl apply -f mysql-serviceNodePort.yaml
 
 ## 2) Vérification des configurations
 ```bash
+kubectl get secrets
+kubectl get PersistentVolumes
+kubectl get PersistentVolumeClaims
 kubectl get deployments
 kubectl get pods
 kubectl get services
