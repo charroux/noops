@@ -1,9 +1,9 @@
-# Deploiement d'un conteneur Mysql dans un cluster Kubernetes 
+# ⚙ Deploiement d'un conteneur Mysql dans un cluster Kubernetes 
 
-## 1)deploiement du serveur MYSQL
+## 1) Deploiement du serveur MYSQL 
 
 
-### Descritif des fichiers : 
+### 💡 Descriptif des fichiers : 
 
 **mysql-secret.yaml** : Ce fichier décrit les variables d'environnement utilisés lors du déploiement du serveur MYSQL 
 
