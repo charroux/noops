@@ -19,7 +19,7 @@ Ce fichier définit les volumes qui vont être utilisés par le serveur MySQL po
 kubectl apply -f mysql-storage.yaml
 ```
 #### mysql-deployment.yaml
-Ce fichier définit le conteneur mysql à déployement sur cluster kubernetes.
+Ce fichier définit le conteneur mysql à déployer sur le cluster kubernetes.
 ```bash
 kubectl apply -f mysql-deployment.yaml
 ```
