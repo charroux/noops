@@ -1,6 +1,6 @@
 # Deploiement d'un conteneur MySQL dans un cluster Kubernetes 
 
-## 1)deploiement du serveur MySQL
+## 1) Deploiement du serveur MySQL
 ### Prérequis
 ```bash
 minikube start
