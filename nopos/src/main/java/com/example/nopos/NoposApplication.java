@@ -1,0 +1,102 @@
+package com.example.nopos;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpMethod;
+import org.springframework.integration.dsl.IntegrationFlow;
+import org.springframework.integration.dsl.IntegrationFlows;
+import org.springframework.integration.dsl.MessageChannels;
+import org.springframework.integration.http.dsl.Http;
+import org.springframework.integration.jpa.dsl.Jpa;
+import org.springframework.integration.jpa.support.PersistMode;
+import org.springframework.messaging.MessageChannel;
+
+import javax.persistence.EntityManagerFactory;
+
+@SpringBootApplication
+public class NoposApplication {
+
+	public static void main(String[] args) {
+
+		ConfigurableApplicationContext context = SpringApplication.run(NoposApplication.class, args);
+		PersonGateway personGateway = (PersonGateway) context.getBean(PersonGateway.class);
+		Person tintin = new Person();
+		tintin.setName("Tintin");
+		personGateway.send(tintin);
+
+	}
+
+	@Autowired
+	private EntityManagerFactory entityManagerFactory;
+
+	@Bean
+	public IntegrationFlow gateway() {
+		return IntegrationFlows.from(PersonGateway.class)
+				.channel("outboundDatabaseAdapterFlow.input")
+			//	.log()
+				.get();
+	}
+
+	@Bean
+	public IntegrationFlow outboundDatabaseAdapterFlow() {
+		return f -> f
+				.handle(Jpa.outboundAdapter(entityManagerFactory)
+								.entityClass(Person.class)
+								.persistMode(PersistMode.PERSIST),
+						e -> e.transactional(true));
+			//	.log();
+	}
+
+	@Bean
+	public IntegrationFlow inboundDatabaseAdapterFlow() {
+		return IntegrationFlows
+				.from(Jpa.inboundAdapter(this.entityManagerFactory)
+								.entityClass(Person.class)
+								.maxResults(1)
+								.expectSingleResult(true),
+						e -> e.poller(p -> p.fixedDelay(5000)))
+				.log()
+				.channel("personDatabaseChannel")
+				.get();
+	}
+
+	@Bean
+	public MessageChannel personDatabaseChannel() {
+		return MessageChannels.queue().get();
+	}
+
+	@Bean
+	public IntegrationFlow outboundHttpPost() {
+		return IntegrationFlows.from("personDatabaseChannel")
+				.handle(Http.outboundChannelAdapter("http://localhost:8080/person")
+						.httpMethod(HttpMethod.POST))
+				.get();
+	}
+
+	/*@Bean
+	public IntegrationFlow outboundHttpGet() {
+		return IntegrationFlows.from("outboundHttpPost")
+				.handle(Http.outboundChannelAdapter("http://localhost:8080/person")
+						.httpMethod(HttpMethod.GET)
+						.expectedResponseType(Person.class))
+				.channel("personWebServiceChannel")
+				.get();
+	}
+
+	@Bean
+	public MessageChannel personWebServiceChannel() {
+		return MessageChannels.queue().get();
+	}
+
+	@Bean
+	public IntegrationFlow outboundKafkaFlow() {
+		return IntegrationFlows.from("personWebServiceChannel")
+				.log()
+				.get();
+	}*/
+
+}
