@@ -41,6 +41,10 @@ public class NoposApplication {
 				.get();
 	}
 
+	/**
+	 * Insert into database
+	 * @return
+	 */
 	@Bean
 	public IntegrationFlow outboundDatabaseAdapterFlow() {
 		return f -> f
@@ -51,6 +55,10 @@ public class NoposApplication {
 			//	.log();
 	}
 
+	/**
+	 * Select continuously in the database (each 5 seconds)
+	 * @return
+	 */
 	@Bean
 	public IntegrationFlow inboundDatabaseAdapterFlow() {
 		return IntegrationFlows
@@ -69,6 +77,10 @@ public class NoposApplication {
 		return MessageChannels.queue().get();
 	}
 
+	/**
+	 * Rest Web Service call
+	 * @return
+	 */
 	@Bean
 	public IntegrationFlow outboundHttpPost() {
 		return IntegrationFlows.from("personDatabaseChannel")
