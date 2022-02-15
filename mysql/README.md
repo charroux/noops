@@ -44,13 +44,13 @@ kubectl get secrets
 kubectl get PersistentVolumes
 kubectl get PersistentVolumeClaims
 kubectl get deployments
-kubectl get pods
 kubectl get services
+kubectl get pods
 ```
 ## 3) Connexion au server MySQL
 ### Le service de type ClusterIP 
 ```bash
-kubectl exec --stdin --tty <Id du pod> -- mysql -ptest1234
+kubectl exec --stdin --tty <Nom du pod> -- mysql -ptest1234
 ```
 ### Le service de type NodePort
 ```bash
