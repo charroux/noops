@@ -36,7 +36,8 @@ public class NoposApplication {
 	@Bean
 	public IntegrationFlow gateway() {
 		return IntegrationFlows.from(PersonGateway.class)
-				.channel("outboundDatabaseAdapterFlow.input")
+				.channel("personDatabaseChannel")
+			//	.channel("outboundDatabaseAdapterFlow.input")
 			//	.log()
 				.get();
 	}

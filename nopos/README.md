@@ -11,6 +11,7 @@ personGateway.send(tintin);
 
 La classe JPA Personne : https://github.com/charroux/noops/blob/main/nopos/src/main/java/com/example/nopos/Person.java
 
+<!---
 Envoi de la personne vers la base de données
 ```
 @Bean
@@ -47,6 +48,8 @@ public IntegrationFlow inboundDatabaseAdapterFlow() {
 			.channel("personDatabaseChannel")
 			.get();
 }
+
+--->
 ```
 Appel d'un Web Service
 ```
