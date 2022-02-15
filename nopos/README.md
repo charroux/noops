@@ -48,9 +48,8 @@ public IntegrationFlow inboundDatabaseAdapterFlow() {
 			.channel("personDatabaseChannel")
 			.get();
 }
-
---->
 ```
+--->
 Appel d'un Web Service
 ```
 @Bean
