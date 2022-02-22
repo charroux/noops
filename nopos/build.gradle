@@ -20,7 +20,7 @@ dependencies {
 	implementation 'org.springframework.integration:spring-integration-jpa'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.integration:spring-integration-test'
-	runtimeOnly 'com.h2database:h2'
+	runtimeOnly 'mysql:mysql-connector-java'
 }
 
 tasks.named('test') {

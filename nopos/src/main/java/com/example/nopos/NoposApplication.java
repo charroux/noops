@@ -23,10 +23,11 @@ public class NoposApplication {
 	public static void main(String[] args) {
 
 		ConfigurableApplicationContext context = SpringApplication.run(NoposApplication.class, args);
-		PersonGateway personGateway = (PersonGateway) context.getBean(PersonGateway.class);
-		Person tintin = new Person();
+		UserGateway userGateway = (UserGateway) context.getBean(UserGateway.class);
+		User tintin = new User();
 		tintin.setName("Tintin");
-		personGateway.send(tintin);
+		tintin.setEmail("tintin@moulinsard.fr");
+		userGateway.send(tintin);
 
 	}
 
@@ -35,9 +36,9 @@ public class NoposApplication {
 
 	@Bean
 	public IntegrationFlow gateway() {
-		return IntegrationFlows.from(PersonGateway.class)
-				.channel("personDatabaseChannel")
-			//	.channel("outboundDatabaseAdapterFlow.input")
+		return IntegrationFlows.from(UserGateway.class)
+			//	.channel("personDatabaseChannel")
+				.channel("outboundDatabaseAdapterFlow.input")
 			//	.log()
 				.get();
 	}
@@ -50,10 +51,10 @@ public class NoposApplication {
 	public IntegrationFlow outboundDatabaseAdapterFlow() {
 		return f -> f
 				.handle(Jpa.outboundAdapter(entityManagerFactory)
-								.entityClass(Person.class)
+								.entityClass(User.class)
 								.persistMode(PersistMode.PERSIST),
-						e -> e.transactional(true));
-			//	.log();
+						e -> e.transactional(true))
+				.log();
 	}
 
 	/**
@@ -64,7 +65,7 @@ public class NoposApplication {
 	public IntegrationFlow inboundDatabaseAdapterFlow() {
 		return IntegrationFlows
 				.from(Jpa.inboundAdapter(this.entityManagerFactory)
-								.entityClass(Person.class)
+								.entityClass(User.class)
 								.maxResults(1)
 								.expectSingleResult(true),
 						e -> e.poller(p -> p.fixedDelay(5000)))

@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class WebService {
 
     @PostMapping("/person")
-    public void person(@RequestBody Person person){
-        System.out.println("Dans le web service : " + person);
+    public void person(@RequestBody User user){
+        System.out.println("Dans le web service : " + user);
     }
 
 }
