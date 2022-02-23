@@ -63,7 +63,8 @@ mysql> grant all on db_example.* to 'springuser'@'%'; -- Gives all privileges to
 ```bash
 minikube service mysql 
 ```
-ou 
+
+### L'url du service
 ```bash
 minikube service mysql --url
 ```
