@@ -13,7 +13,7 @@ Il affiche :
 ## Télécharger le projet webservice
 Après avoir téléchrger le projet webservice, palcez-vous dans le dossier.
 
-### Testez ce projet avec Docker
+## Tester ce projet avec Docker
 Compilez le projet Java :
 
 Construit  gradlew sous Linux
@@ -111,7 +111,7 @@ Elle utilise le webservice pour afficher :
 ## Télécharger le projet nopos
 Après avoir téléchrger le projet nopos, palcez-vous dans le dossier.
 
-### Testez ce projet avec Docker 
+## Tester ce projet avec Docker 
 
 Compilez le projet Java :
 
