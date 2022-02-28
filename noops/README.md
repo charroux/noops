@@ -8,7 +8,7 @@ Sinon vous pouvez suivre ce lien https://github.com/charroux/noops/tree/main/mys
 Le web service est codé en Java (Spring boot).
 Il affiche :
 * Un utilisateur (par défaut Tintin) dans la console.
-* "Welcome to web servie" dans un navigateur. 
+* "Welcome to web service" dans un navigateur. 
 
 ## Télécharger le projet webservice
 Après avoir téléchrger le projet webservice, palcez-vous dans le dossier.
@@ -97,6 +97,8 @@ kubectl expose déploiement mysqlwebservice --name=<nom du cluster webservice> -
 ``` 
 
 Une image Docker est déjà disponible dans le Github Docker à l'adresse : https://hub.docker.com/u/medbozo2020 , et ce tutoriel l'utilise. Mais n'hésitez pas à le reconstruire. Tout le code plus le Dockerfile sont là : https://github.com/charroux/noops/tree/main/noops/webservice
+
+NB: Le web service ne peut pas etre tester pour le moment, car il n'est pas accessible via le navigateur.
 
 ## L'application principale : nopos
 L'application est codée en Java (Spring boot) et utilise une base de données MySQL.
