@@ -8,7 +8,7 @@ Sinon vous pouvez suivre ce lien https://github.com/charroux/noops/tree/main/mys
 Le web service est codé en Java (Spring boot).
 Il affiche :
 * Un utilisateur (par défaut Tintin) dans la console.
-* "Welcome to web service" dans un navigateur. 
+* "Welcome to webservice" dans un navigateur. 
 
 ## Télécharger le projet webservice
 Après avoir téléchrger le projet webservice, palcez-vous dans le dossier.
@@ -106,7 +106,7 @@ L'application est codée en Java (Spring boot) et utilise une base de données M
 
 Elle utilise le webservice pour afficher :
 * Un utilisateur (par défaut Tintin) dans la console.
-* "Welcome to web servie" dans un navigateur. 
+* "Welcome to webservice" dans un navigateur. 
 
 ## Télécharger le projet nopos
 Après avoir téléchrger le projet nopos, palcez-vous dans le dossier.
@@ -199,7 +199,7 @@ Récupérer l'adresse du service :
 ``` bash
 minikube service noopsmysql --url
 ``` 
-Testez cette adresse dans votre navigateur. Il devrait afficher à nouveau "Welcome to web service".
+Testez cette adresse dans votre navigateur. Il devrait afficher à nouveau "Welcome to webservice".
 
 
 Une image Docker est déjà disponible dans Docker Hub à l'adresse : https://hub.docker.com/u/medbozo2020 , et ce tutoriel l'utilise. Mais n'hésitez pas à le reconstruire. Tout le code plus le Dockerfile sont là : https://github.com/charroux/noops/tree/main/noops/nopos
