@@ -30,9 +30,10 @@ Vérifiez l'ID du conteneur : docker ps
 
 Publier l'image sur le Docker Hub
 
-Récupérer l'ID de l'image : $ docker images
-
-
+Récupérer l'ID de l'image : 
+```bash 
+docker images
+```
 Marquez l'image docker : docker tag imageID yourDockerHubName/imageName:version
 
 Exemple : balise docker 1dsd512s0d myDockerID/my-service:1
