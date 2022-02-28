@@ -27,7 +27,7 @@ gradlew build
 ```
 Construisez l'image docker 
 ```bash
-docker build -t nopos.
+docker build -t nopos .
 ```
 Vérifiez l'image
 ``` bash
@@ -48,8 +48,10 @@ Marquez l'image docker :
 docker tag imageID yourDockerHubName/imageName:version
 ```
 
-Exemple : balise docker 1dsd512s0d myDockerID/nopos:1
-
+Exemple :
+``` bash
+docker 1dsd512s0d myDockerID/nopos:1
+``` 
 Connectez-vous au hub Docker :
 ``` bash
 docker login
@@ -69,13 +71,11 @@ docker push yourDockerHubName/imageName:version
 Exemple : 
 ``` bash
 docker push myDockerID/nopos:1
-``` bash
-
+```
 Créer un déploiement kubernetes à partir d'une image Docker nopos 
 ``` bash
 kubectl get nodes
-``` 
-``` bash
+
 kubectl create deployment mysqlwebservice --image=medbozo2020/noopsmysql3:1
 ``` 
 L'image utilisée provient du hub Docker : https://hub.docker.com/r/medbozo2020/noopsmysql3/tags
