@@ -51,7 +51,7 @@ Exemple :
 ``` bash
 docker 1dsd512s0d myDockerID/webservice:1
 ``` 
-Connectez-vous au hub Docker :
+Connectez-vous au Docker Hub :
 ``` bash
 docker login
 ``` 
@@ -97,7 +97,7 @@ kubectl describe pods
 kubectl expose déploiement mysqlwebservice --name=mysqlwebservice --port=8181
 ``` 
 
-Une image Docker est déjà disponible dans le Github Docker à l'adresse : https://hub.docker.com/u/medbozo2020 , et ce tutoriel l'utilise. Mais n'hésitez pas à le reconstruire. Tout le code plus le Dockerfile sont là : https://github.com/charroux/noops/tree/main/noops/webservice
+Une image Docker est déjà disponible dans Docker Hub à l'adresse : https://hub.docker.com/u/medbozo2020 , et ce tutoriel l'utilise. Mais n'hésitez pas à le reconstruire. Tout le code plus le Dockerfile sont là : https://github.com/charroux/noops/tree/main/noops/webservice
 
 NB: Le web service ne peut pas être tester pour le moment, car il n'est pas accessible via le navigateur.
 
@@ -199,7 +199,7 @@ minikube service noopsmysql --url
 Testez cette adresse dans votre navigateur. Il devrait afficher à nouveau "Welcome to web service".
 
 
-Une image Docker est déjà disponible dans le Github Docker à l'adresse : https://hub.docker.com/u/medbozo2020 , et ce tutoriel l'utilise. Mais n'hésitez pas à le reconstruire. Tout le code plus le Dockerfile sont là : https://github.com/charroux/noops/tree/main/noops/nopos
+Une image Docker est déjà disponible dans Docker Hub à l'adresse : https://hub.docker.com/u/medbozo2020 , et ce tutoriel l'utilise. Mais n'hésitez pas à le reconstruire. Tout le code plus le Dockerfile sont là : https://github.com/charroux/noops/tree/main/noops/nopos
 
 
 
