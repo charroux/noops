@@ -103,6 +103,7 @@ NB: Le web service ne peut pas être tester pour le moment, car il n'est pas acc
 
 ## L'application principale : nopos
 L'application est codée en Java (Spring boot) et utilise une base de données MySQL.
+
 Elle utilise le webservice pour afficher :
 * Un utilisateur (par défaut Tintin) dans la console.
 * "Welcome to web servie" dans un navigateur. 
