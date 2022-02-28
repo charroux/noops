@@ -13,9 +13,10 @@ Il affiche :
 ## Télécharger le projet webservice
 Après avoir téléchrger le projet webservice, palcez-vous dans le dossier.
 
-Testez ce projet avec Docker
+### Testez ce projet avec Docker
 Compilez le projet Java 
-construit  gradlew sous Linux
+
+Construit  gradlew sous Linux
 ```bash
 ./gradlew 
 ```
