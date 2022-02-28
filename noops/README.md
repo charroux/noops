@@ -36,7 +36,7 @@ Vérifiez l'ID du conteneur
 ``` bash
 docker ps
 ```
-Publier l'image sur le Docker Hub
+## Publier l'image sur le Docker Hub
 
 Récupérer l'ID de l'image : 
 ```bash 
@@ -71,7 +71,7 @@ Exemple :
 ``` bash
 docker push myDockerID/webservice:1
 ```
-Créer un déploiement kubernetes à partir d'une image Docker webservice
+## Créer un déploiement kubernetes à partir d'une image Docker webservice
 ``` bash
 kubectl get nodes
 
@@ -135,7 +135,7 @@ Vérifiez l'ID du conteneur
 ``` bash
 docker ps
 ```
-Publier l'image sur le Docker Hub
+## Publier l'image sur le Docker Hub
 
 Récupérer l'ID de l'image : 
 ```bash 
@@ -162,7 +162,7 @@ ou
 ``` bash
 docker login -u nom d'utilisateur -p mot de passe
 ``` 
-Poussez l'image vers le docker hub 
+## Poussez l'image vers le docker hub 
 ``` bash
 docker push yourDockerHubName/imageName:version
 ``` 
@@ -170,7 +170,7 @@ Exemple :
 ``` bash
 docker push myDockerID/nopos:1
 ```
-Créer un déploiement kubernetes à partir d'une image Docker nopos 
+## Créer un déploiement kubernetes à partir d'une image Docker nopos 
 ``` bash
 kubectl get nodes
 
