@@ -193,7 +193,7 @@ kubectl describe pods
 ## Exposer le déploiement via un service
 Exposez les routes HTTP et HTTPS à l'aide de NodePort
 ``` bash
-kubectl expose deployment déploiement noopsmysql --type=NodePort --port=8080
+kubectl expose deployment noopsmysql --type=NodePort --port=8080
 ``` 
 Récupérer l'adresse du service :
 ``` bash
