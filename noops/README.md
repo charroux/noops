@@ -1,10 +1,10 @@
-#Communication entre une application et un web service en utilisant la base de données MySQL
+# Communication entre une application et un web service en utilisant la base de données MySQL
 
-##Prérequis
+## Prérequis
 Ce didacticiel suppose que vous avez déjà installé Docker, Kubernetes et déployer une image MySQL dans un cluster Kubernetes.
 Sinon vous pouvez suivre ce lien https://github.com/charroux/noops/tree/main/mysql pour déployer l'image MySQL dans un cluster Kubernetes.
 
-##L'application principale : nopos
+## L'application principale : nopos
 L'application est codée en Java (Spring boot) et utilise une base de données MySQL.
 Elle utilise le webservice pour afficher :
               - Un utilisateur (par défaut Tintin) dans la console.
@@ -12,7 +12,7 @@ Elle utilise le webservice pour afficher :
 
 Une image Docker est déjà disponible dans le Github Docker à l'adresse : https://hub.docker.com/u/medbozo2020 , et ce tutoriel l'utilise. Mais n'hésitez pas à le reconstruire. Tout le code plus le Dockerfile sont là : https://github.com/charroux/noops/tree/main/noops/nopos
 
-##Télécharger le projet nopos
+## Télécharger le projet nopos
 Après avoir téléchrger le projet nopos, palcez-vous dans le dossier.
 
 Testez ce projet avec Docker
@@ -30,7 +30,7 @@ Vérifiez l'ID du conteneur : docker ps
 
 Publier l'image sur le Docker Hub
 
-Récupérer l'ID de l'image : $docker images
+Récupérer l'ID de l'image : $ docker images
 
 
 Marquez l'image docker : docker tag imageID yourDockerHubName/imageName:version
