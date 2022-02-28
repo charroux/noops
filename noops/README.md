@@ -93,12 +93,12 @@ kubectl describe pods
 ## Exposer le déploiement via un service ClusterIP
 
 ``` bash
-kubectl expose déploiement mysqlwebservice --name=<nom du cluster webservice> --port=8181
+kubectl expose déploiement mysqlwebservice --name=mysqlwebservice --port=8181
 ``` 
 
 Une image Docker est déjà disponible dans le Github Docker à l'adresse : https://hub.docker.com/u/medbozo2020 , et ce tutoriel l'utilise. Mais n'hésitez pas à le reconstruire. Tout le code plus le Dockerfile sont là : https://github.com/charroux/noops/tree/main/noops/webservice
 
-NB: Le web service ne peut pas etre tester pour le moment, car il n'est pas accessible via le navigateur.
+NB: Le web service ne peut pas être tester pour le moment, car il n'est pas accessible via le navigateur.
 
 ## L'application principale : nopos
 L'application est codée en Java (Spring boot) et utilise une base de données MySQL.
@@ -170,7 +170,7 @@ Créer un déploiement kubernetes à partir d'une image Docker nopos
 ``` bash
 kubectl get nodes
 
-kubectl create deployment mysqlwebservice --image=medbozo2020/noopsmysql3:1
+kubectl create deployment noopsmysql --image=medbozo2020/noopsmysql3:1
 ``` 
 L'image utilisée provient du hub Docker : https://hub.docker.com/r/medbozo2020/noopsmysql3/tags
 
@@ -189,11 +189,11 @@ kubectl describe pods
 ## Exposer le déploiement via un service
 Exposez les routes HTTP et HTTPS à l'aide de NodePort
 ``` bash
-kubectl expose déploiement mysqlwebservice --type=NodePort --port=8080
+kubectl expose déploiement noopsmysql --type=NodePort --port=8080
 ``` 
 Récupérer l'adresse du service :
 ``` bash
-minikube service myservice --url
+minikube service noopsmysql --url
 ``` 
 Testez cette adresse dans votre navigateur. Il devrait afficher à nouveau "Welcome to web service".
 
