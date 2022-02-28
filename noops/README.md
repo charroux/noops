@@ -7,6 +7,7 @@ Sinon vous pouvez suivre ce lien https://github.com/charroux/noops/tree/main/mys
 ## Le web service : webservice
 Le web service est codé en Java (Spring boot).
 Il affiche :
+
               - Un utilisateur (par défaut Tintin) dans la console.
               - "Welcome to web servie" dans un navigateur. 
 
