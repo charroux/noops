@@ -30,7 +30,7 @@ docker build -t webservice .
 ```
 Vérifiez l'image
 ``` bash
-images docker
+docker images 
 ```
 Vérifiez l'ID du conteneur 
 ``` bash
@@ -126,7 +126,7 @@ docker build -t nopos .
 ```
 Vérifiez l'image
 ``` bash
-images docker
+docker images 
 ```
 Vérifiez l'ID du conteneur 
 ``` bash
