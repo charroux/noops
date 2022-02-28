@@ -20,7 +20,7 @@ Construit  gradlew sous Linux
 ```bash
 ./gradlew 
 ```
-construction gradlew sous Windows
+Construction gradlew sous Windows
 ```bash
 gradlew build
 ```
@@ -111,13 +111,15 @@ Elle utilise le webservice pour afficher :
 ## Télécharger le projet nopos
 Après avoir téléchrger le projet nopos, palcez-vous dans le dossier.
 
-Testez ce projet avec Docker
-Compilez le projet Java 
-construit  gradlew sous Linux
+### Testez ce projet avec Docker 
+
+Compilez le projet Java :
+
+Construit  gradlew sous Linux
 ```bash
 ./gradlew 
 ```
-construction gradlew sous Windows
+Construction gradlew sous Windows
 ```bash
 gradlew build
 ```
