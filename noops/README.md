@@ -14,7 +14,7 @@ Il affiche :
 Après avoir téléchrger le projet webservice, palcez-vous dans le dossier.
 
 ## Tester ce projet avec Docker
-Compilez le projet Java :
+### Compilez le projet Java :
 
 Construit  gradlew sous Linux
 ```bash
@@ -94,7 +94,7 @@ kubectl describe pods
 ## Exposer le déploiement via un service ClusterIP
 
 ``` bash
-kubectl expose déploiement mysqlwebservice --name=mysqlwebservice --port=8181
+kubectl expose deployment mysqlwebservice --name=mysqlwebservice --port=8181
 ``` 
 
 Une image Docker est déjà disponible dans Docker Hub à l'adresse : https://hub.docker.com/u/medbozo2020 , et ce tutoriel l'utilise. Mais n'hésitez pas à le reconstruire. Tout le code plus le Dockerfile sont là : https://github.com/charroux/noops/tree/main/noops/webservice
@@ -193,7 +193,7 @@ kubectl describe pods
 ## Exposer le déploiement via un service
 Exposez les routes HTTP et HTTPS à l'aide de NodePort
 ``` bash
-kubectl expose déploiement noopsmysql --type=NodePort --port=8080
+kubectl expose deployment déploiement noopsmysql --type=NodePort --port=8080
 ``` 
 Récupérer l'adresse du service :
 ``` bash
