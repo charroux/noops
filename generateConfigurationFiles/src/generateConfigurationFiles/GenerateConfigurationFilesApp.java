@@ -4,63 +4,76 @@ public class GenerateConfigurationFilesApp {
 
 	public static void main(String[] args) {
 
-		//CrÈation d'un fichier de configuration secret.yml
-		//ParamËtres: nom du secret et le mot de passe 
+		//Cr√©ation d'un fichier de configuration secret.yml
+		//Param√®tres: nom du secret et le mot de passe 
 		GenerateConfigurationFiles.createSecretFile("mysql-secret", "test1234");
 		
 		
-		//CrÈation d'un fichier de configuration storage.yaml
-		//ParamËtres: nom du volume, nom du volume claim, capacitÈ et rÈpertoire de stockage
+		//Cr√©ation d'un fichier de configuration storage.yaml
+		//Param√®tres: nom du volume, nom du volume claim, capacit√© et r√©pertoire de stockage
 		GenerateConfigurationFiles.createStorageFile("mysql-pv-volume", "mysql-pv-claim", "20Gi", "/mnt/data");
 		
-		//CrÈation d'un fichier de configuration deploymentDB.yaml => Pour les bases de donnÈes
-		//ParamËtres: nom du dÈploiement,nom de image, nom du secret, rÈpertoire de stockage, port, nom du volume claim
+		
+		//Cr√©ation d'un fichier de configuration deploymentDB.yaml => Pour les bases de donn√©es
+		//Param√®tres: nom du d√©ploiement,nom de image, nom du secret, r√©pertoire de stockage, port, nom du volume claim
 		GenerateConfigurationFiles.createDeploymentDBFile("mysql", "mysql:5.7", "mysql-secret", "/var/lib/mysql", 3306, "mysql-pv-claim");
 		
-		//CrÈation d'un fichier de configuration deploymentApp.yaml => Pour les applications avec un replicas par dÈfaut: 1
-		//ParamËtres: nom du dÈploiement et nom de image
+		
+		//Cr√©ation d'un fichier de configuration deploymentApp.yaml => Pour les applications avec un replicas par d√©faut: 1
+		//Param√®tres: nom du d√©ploiement et nom de image
 		GenerateConfigurationFiles.createDeploymentAppFile("my-service", "efrei/my-service:latest");
 		
-		//CrÈation d'un fichier de configuration deploymentApp.yaml => Pour les applications avec un nombre de replicas donnÈ
-		//ParamËtres: nom du dÈploiement, nom de image et le nombre de replicas
+		
+		//Cr√©ation d'un fichier de configuration deploymentApp.yaml => Pour les applications avec un nombre de replicas donn√©
+		//Param√®tres: nom du d√©ploiement, nom de image et le nombre de replicas
 		GenerateConfigurationFiles.createDeploymentAppFile("my-service", "efrei/my-service:latest", 2);	
 		
-		//CrÈation d'un fichier de configuration serviceClusterIp.yaml
-		//ParamËtres: nom du service et port
+		
+		//Cr√©ation d'un fichier de configuration serviceClusterIp.yaml
+		//Param√®tres: nom du service et port
 		GenerateConfigurationFiles.createServiceClusterIpFile("mysql", 3306);
 		
-		//CrÈation d'un fichier de configuration serviceClusterNodePort.yaml avec un Nodeport par dÈfaut: 31281
-		//ParamËtres: nom du service et port
+		
+		//Cr√©ation d'un fichier de configuration serviceClusterNodePort.yaml avec un Nodeport par d√©faut: 31281
+		//Param√®tres: nom du service et port
 		GenerateConfigurationFiles.createServiceNodePortFile("mysql", 3306);
 		
-		//CrÈation d'un fichier de configuration serviceClusterNodePort.yaml avec un NodePort donnÈ
-		//ParamËtres: nom du service, port et nodePort
+
+		//Cr√©ation d'un fichier de configuration serviceClusterNodePort.yaml avec un NodePort donn√©
+		//Param√®tres: nom du service, port et nodePort
 		GenerateConfigurationFiles.createServiceNodePortFile("mysql", 3306, 31283);
+
 		
 		
-		//CrÈation d'un fichier de configuration serviceLoadBalancer.yaml avec un Nodeport par dÈfaut: 31285
-		//ParamËtres: nom du service et port
+		//Cr√©ation d'un fichier de configuration serviceLoadBalancer.yaml avec un Nodeport par d√©faut: 31285
+		//Param√®tres: nom du service et port
 		GenerateConfigurationFiles.createServiceLoadBalancerFile("my-service", 8080);
 		
-		//CrÈation d'un fichier de configuration serviceClusterNodePort.yaml avec un NodePort donnÈ
-		//ParamËtres: nom du service, port et nodePort
+		
+		//Cr√©ation d'un fichier de configuration serviceClusterNodePort.yaml avec un NodePort donn√©
+		//Param√®tres: nom du service, port et nodePort
 		GenerateConfigurationFiles.createServiceLoadBalancerFile("my-service", 8080,31289);
 		
-		//CrÈation d'un fichier  Dockerfile avec une version de java par dÈfaut: 8
-		//ParamËtres: nom du jar et port
+		
+		//Cr√©ation d'un fichier  Dockerfile avec une version de java par d√©faut: 8
+		//Param√®tres: nom du jar et port
 		GenerateConfigurationFiles.createDockerFile("MyService-0.0.1-SNAPSHOT.jar", 8080);
 		
-		//CrÈation d'un fichier de configuration Dockerfile avec une version de java donnÈe
-		//ParamËtres: nom du jar, port et une version de java
+		
+		//Cr√©ation d'un fichier de configuration Dockerfile avec une version de java donn√©e
+		//Param√®tres: nom du jar, port et une version de java
 		GenerateConfigurationFiles.createDockerFile("MyService-0.0.1-SNAPSHOT.jar", 8080, 11);
 		
-		//CrÈation d'un fichier  Dockerfile avec une version de java et un port par dÈfaut: 8 et 8080
-		//ParamËtres: nom du jar
+		
+		//Cr√©ation d'un fichier  Dockerfile avec une version de java et un port par d√©faut: 8 et 8080
+		//Param√®tres: nom du jar
 		GenerateConfigurationFiles.createDockerFile("MyService-0.0.1-SNAPSHOT.jar");
 		
-		//CrÈation d'un fichier de configuration Dockerfile avec une version de java donnÈe et un port port par dÈfaut
-		//ParamËtres: Une version de java et nom du jar
+		
+		//Cr√©ation d'un fichier de configuration Dockerfile avec une version de java donn√©e et un port par d√©faut 8080
+		//Param√®tres: Une version de java et nom du jar
 		GenerateConfigurationFiles.createDockerFile(11,"MyService-0.0.1-SNAPSHOT.jar");
+		
 		
 	}
 
