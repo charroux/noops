@@ -9,8 +9,7 @@ public class UtilDeploymentApp {
 
 	public static boolean createDeploymentAppFile(String nom, String image, int nbReplicas) {
 		
-		//+ "          imagePullPolicy: IfNotPresent\n"
-		
+				
 		String deployment="apiVersion: apps/v1\n"
 				+ "kind: Deployment\n"
 				+ "metadata:\n"
