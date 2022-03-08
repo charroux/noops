@@ -21,7 +21,7 @@ secret.createSecretFile();
  
 ### Classe Storage
 #### Constructeur : Storage(nom du volume, nom du volume claim, capacité, répertoire de stockage)
-#### Methode : createStorageFile() : création du fichier storage.yaml
+#### Méthode : createStorageFile() : création du fichier storage.yaml
 
   Exemple :
   
@@ -31,8 +31,8 @@ storage.createStorageFile();
 ```
 
 ### Classe DeploymentDB
-#### Constructeur :  DeploymentDB(nom du déploiement,nom de image, instance de la classe Secret, répertoire de stockage, port, instance de la classe Storage)
-#### Methode : createDeploymentDBFile() : création du fichier deploymentDB.yaml pour les bases de données
+#### Constructeur :  DeploymentDB(nom du déploiement, nom de image, instance de la classe Secret, répertoire de stockage, port, instance de la classe Storage)
+#### Méthode : createDeploymentDBFile() : création du fichier deploymentDB.yaml pour les bases de données
 
   Exemple :
   
@@ -42,7 +42,7 @@ depDB.createDeploymentDBFile();
 ```
 ### Classe DeploymentApp
 #### 1. Constructeur :  DeploymentApp(nom du déploiement, nom de image)
-#### Methode : createDeploymentAppFile() : création du fichier deploymentApp.yaml pour les applications avec un replicas par défaut à 1
+#### Méthode : createDeploymentAppFile() : création du fichier deploymentApp.yaml pour les applications avec un replicas par défaut à 1
 
   Exemple :
   
@@ -52,7 +52,7 @@ depApp.createDeploymentAppFile();
 ```
 
 #### 2. Constructeur :  DeploymentApp(nom du déploiement, nom de image, le nombre de replicas)
-#### Methode : createDeploymentAppFile() : création du fichier deploymentApp.yaml pour les applications avec un replicas donné
+#### Méthode : createDeploymentAppFile() : création du fichier deploymentApp.yaml pour les applications avec un replicas donné
 
   Exemple :
   
@@ -62,7 +62,7 @@ depApp2.createDeploymentAppFile();
 ```
 ### Classe ServiceClusterIp
 #### 1. Constructeur : ServiceClusterIp(instance de la classe DeploymentApp, port)
-#### Methode : createServiceClusterIpFileApp() : création du fichier serviceClusterIp.yaml pour les applications
+#### Méthode : createServiceClusterIpFileApp() : création du fichier serviceClusterIp.yaml pour les applications
 
   Exemple :
   
@@ -72,18 +72,18 @@ serviceClusterIpApp.createServiceClusterIpFileApp();
 ```
 
 #### 2. Constructeur : ServiceClusterIp(instance de la classe DeploymentDB, port)
-#### Methode : createServiceClusterIpFileApp() : création du fichier serviceClusterIp.yaml pour les bases de données
+#### Méthode : createServiceClusterIpFileDB() : création du fichier serviceClusterIp.yaml pour les bases de données
 
   Exemple :
   
 ```bash
 ServiceClusterIp serviceClusterIpDB=new ServiceClusterIp(depDB, 3306);
-serviceClusterIpDB.createServiceClusterIpFileApp();
+serviceClusterIpDB.createServiceClusterIpFileDB();
 ```
 
 ### Classe ServiceNodePort
 #### 1. Constructeur : ServiceNodePort(instance de la classe DeploymentApp, port)
-#### Methode : createServiceNodePortFileApp() : création du fichier serviceNodePort.yaml avec un Nodeport par défaut à 31281 pour les applications
+#### Méthode : createServiceNodePortFileApp() : création du fichier serviceNodePort.yaml avec un Nodeport par défaut à 31281 pour les applications
 
   Exemple :
   
@@ -93,7 +93,7 @@ serviceNodePortApp.createServiceNodePortFileApp();
 ```
 
 #### 2. Constructeur : ServiceNodePort(instance de la classe DeploymentApp, port, nodePort)
-#### Methode : createServiceNodePortFileApp() : création du fichier serviceNodePort.yaml avec un NodePort donné pour les applications
+#### Méthode : createServiceNodePortFileApp() : création du fichier serviceNodePort.yaml avec un NodePort donné pour les applications
 
   Exemple :
   
@@ -103,7 +103,7 @@ serviceNodePortApp2.createServiceNodePortFileApp();
 ```
 
 #### 3. Constructeur : ServiceNodePort(instance de la classe DeploymentDB, port)
-#### Methode : createServiceNodePortFileApp() : création du fichier serviceNodePort.yaml avec un Nodeport par défaut à 31281 pour les bases de données
+#### Méthode : createServiceNodePortFileDB() : création du fichier serviceNodePort.yaml avec un Nodeport par défaut à 31290 pour les bases de données
 
   Exemple :
   
@@ -113,7 +113,7 @@ serviceNodePortDB.createServiceNodePortFileDB();
 ```
 
 #### 4. Constructeur : ServiceNodePort(instance de la classe DeploymentDB, port, nodePort)
-#### Methode : createServiceNodePortFileApp() : création du fichier serviceNodePort.yaml avec un NodePort donné pour les bases de données
+#### Méthode : createServiceNodePortFileDB() : création du fichier serviceNodePort.yaml avec un NodePort donné pour les bases de données
 
   Exemple :
   
@@ -124,7 +124,7 @@ serviceNodePortDB2.createServiceNodePortFileDB();
 
 ### Classe ServiceLoadBalancer
 #### 1. Constructeur : ServiceLoadBalancer(instance de la classe DeploymentApp, port)
-#### Methode : createDeploymentAppFile() : création du fichier serviceLoadBalancer.yaml avec un Nodeport par défaut à 31285 pour les applications
+#### Méthode : createServiceLoadBalancerFile() : création du fichier serviceLoadBalancer.yaml avec un Nodeport par défaut à 31285 pour les applications
 
   Exemple :
   
@@ -134,7 +134,7 @@ serviceLoadBalancerApp.createServiceLoadBalancerFile();
 ```
 
 #### 2. Constructeur :  ServiceLoadBalancer(instance de la classe DeploymentApp, port, nodePort)
-#### Methode : createDeploymentAppFile() : création du fichier serviceClusterNodePort.yaml avec un NodePort donné pour les applications
+#### Méthode : createServiceLoadBalancerFile() : création du fichier serviceClusterNodePort.yaml avec un NodePort donné pour les applications
 
   Exemple :
   
@@ -145,7 +145,7 @@ serviceLoadBalancerApp2.createServiceLoadBalancerFile();
 
 ### Classe Docker
 #### 1. Constructeur : Docker(nom du jar, port)
-#### Methode : createDockerFile() : création d'un fichier Dockerfile avec une version de java par défaut à 8
+#### Méthode : createDockerFile() : création d'un fichier Dockerfile avec une version de java par défaut à 8
 
   Exemple :
   
@@ -155,7 +155,7 @@ dockerfile1.createDockerFile();
 ```
 
 #### 2. Constructeur : Docker(nom du jar, port, une version de java)
-#### Methode : createDockerFile() : création d'un fichier Dockerfile avec une version de java donnée
+#### Méthode : createDockerFile() : création d'un fichier Dockerfile avec une version de java donnée
 
   Exemple :
   
@@ -165,7 +165,7 @@ dockerfile2.createDockerFile();
 ```
 
 #### 3. Constructeur : Docker(nom du jar)
-#### Methode : createDockerFile() : création d'un fichier Dockerfile avec une version de java à 8 et un port par défaut à 8080
+#### Méthode : createDockerFile() : création d'un fichier Dockerfile avec une version de java à 8 et un port par défaut à 8080
 
   Exemple :
   
@@ -175,7 +175,7 @@ dockerfile3.createDockerFile();
 ```
 
 #### 4. Constructeur : Docker(une version de java, nom du jar)
-#### Methode : createDockerFile() : création d'un fichier Dockerfile avec une version de java donnée et un port par défaut à 8080
+#### Méthode : createDockerFile() : création d'un fichier Dockerfile avec une version de java donnée et un port par défaut à 8080
 
   Exemple :
   
