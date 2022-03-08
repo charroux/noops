@@ -1,6 +1,6 @@
 # Programme de génération des fichiers de configuration
 
-Ce programme écrit en Java permet de générer des fichiers de configuration :
+Ce programme écrit en Java (POO) permet de générer des fichiers de configuration :
 - Kubernetes 
 - Docker
 
