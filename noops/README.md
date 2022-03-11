@@ -11,7 +11,7 @@ Il affiche :
 * "Welcome to webservice" dans un navigateur. 
 
 ## Télécharger le projet webservice
-Après avoir téléchrger le projet webservice, palcez-vous dans le dossier.
+Après avoir télécharger le projet webservice, palcez-vous dans le dossier.
 
 ## Tester ce projet avec Docker
 Compilez le projet Java :
