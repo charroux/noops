@@ -108,7 +108,7 @@ Elle utilise le webservice pour afficher :
 * Un utilisateur (par défaut Tintin) dans la console.
 * "Welcome to webservice" dans un navigateur. 
 * Crée une table user dans la base de données db_example.
-* Insert 5 lignes contenant "email: tintin@moulinsard.fr, name: Tintin" dans la table user.  
+* Insert 1 ligne contenant "email: tintin@moulinsard.fr, name: Tintin" dans la table user.  
 
 ## Télécharger le projet nopos
 Après avoir téléchrger le projet nopos, palcez-vous dans le dossier.
