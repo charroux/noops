@@ -45,4 +45,6 @@ Kubertl apply -f serviceNodePort.yaml
 ## 3) Connexion au serveur Postgres :
 ```bash
 ubectl exec --stdin --tty my-service-6df765865-b7pp6 -- postgres -ptest1234
-``
+```
+Apré l'exécution de cette commande nous avons une erreure : 
+décricre le bug !!
