@@ -2,18 +2,23 @@
 
 ## 1) Déploi du serveur Postgres 
 ###Prérequis
-
+```bash
+minikube start
+```
 
 ### Descri des  des fichiers  :
 
 #### postges-secret.yaml 
 Ce fichier définit le mot de passe qui sera utilisé lors de la connexion au serveur  Postgres.
-La commande 
+```bash 
+kubectl apply -f secret.yaml
+```
 
 ####  postgres-deployment.yaml
 Ce fichier définit  le conteneur postgres à lancer sur  le cluster kubernetes
-la commande 
-
+```bash
+kubectl apply -f deploymentApp.yaml
+```
 ### Création de service 
 Afin de cré le service, il  y a deux fichiers , il est pas necessaire d'exécuter les deux.
 
@@ -33,12 +38,11 @@ Kubertl apply -f serviceNodePort.yaml
 
   kubectl get secrets
   kubectl get PersistentVolumes
-   kubectl get PersistentVolumeClaims
-   kubectl get deployments
-    kubectl get services
-    kubectl get pod
+  kubectl get deploymen
+  kubectl get service
+  kubectl get pod
   ```
-## 3) Connexion au serveur Postgres :hsba
+## 3) Connexion au serveur Postgres :
 ```bash
-kubectl exec --stdin --tty my-service-6df765865-b7pp6 -- postgres -ptest1234
-```
+ubectl exec --stdin --tty my-service-6df765865-b7pp6 -- postgres -ptest1234
+``
