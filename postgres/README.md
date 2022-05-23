@@ -70,18 +70,19 @@ Miage_02\PPD\noops\generateConfigurationFiles\src> kubectl apply -f serviceNodeP
 service/postgres configured
 ```bash
 Miage_02\PPD\noops\generateConfigurationFiles\src> kubectl get secrets
-```
+
 NAME                  TYPE                                  DATA   AGE
 default-token-xbrdt   kubernetes.io/service-account-token   3      87m
 postgres-secret       kubernetes.io/basic-auth              1      73m
+```
 ```bash
 Miage_02\PPD\noops\generateConfigurationFiles\src> kubectl get PersistentVolumes
-```
+
 NAME                 CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                       STORAGECLASS   REASON   AGE
 postgres-pv-volume   10Gi       RWO            Retain           Bound    default/postgres-pv-claim   manual                  72m
 NAME                STATUS   VOLUME               CAPACITY   ACCESS MODES   STORAGECLASS   AGE
 postgres-pv-claim   Bound    postgres-pv-volume   10Gi       RWO            manual         73m
-
+```
 ```bash
 Miage_02\PPD\noops\generateConfigurationFiles\src> kubectl get deployments
 ```
@@ -90,11 +91,11 @@ postgres   0/1     1            0           110s
 
 ```bash
 Miage_02\PPD\noops\generateConfigurationFiles\src> kubectl get services
-```
+
 NAME         TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE
 kubernetes   ClusterIP   10.96.0.1        <none>        443/TCP          88m
 postgres     NodePort    10.109.117.184   <none>        5432:31283/TCP   90s
-
+```
 ```bash
 Miage_02\PPD\noops\generateConfigurationFiles\src> kubectl get pods
 ```
@@ -106,5 +107,3 @@ postgres-74f5b69cdc-djcdj   0/1     CrashLoopBackOff   3 (28s ago)   2m12s
 Miage_02\PPD\noops\generateConfigurationFiles\src> kubectl exec --stdin --tty postgres-74f5b69cdc-djcdj -- postgres -ptest1234
 ```
 error: unable to upgrade connection: container not found ("postgres")
-Miage_02\PPD\noops\generateConfigurationFiles\src>
-
