@@ -47,4 +47,64 @@ Kubertl apply -f serviceNodePort.yaml
 bectl exec --stdin --tty my-service-6df765865-b7pp6 -- postgres -ptest1234
 ```
 Apré l'exécution de cette commande nous avons un bug 
-décricre le bug !!
+
+### Excecution des commandes et l'erreur obtenu : 
+```bash
+Miage_02\PPD\noops\generateConfigurationFiles\src> kubectl apply -f secret.yaml
+```
+secret/postgres-secret created
+```bash
+Miage_02\PPD\noops\generateConfigurationFiles\src> kubectl apply -f storage.yaml
+```
+persistentvolume/postgres-pv-volume created
+persistentvolumeclaim/postgres-pv-claim created
+```bash
+Miage_02\PPD\noops\generateConfigurationFiles\src> kubectl apply -f deploymentDB.yaml
+```
+deployment.apps/postgres created
+```bash
+Miage_02\PPD\noops\generateConfigurationFiles\src> kubectl apply -f serviceClusterIp.yaml      
+```
+```bash
+Miage_02\PPD\noops\generateConfigurationFiles\src> kubectl apply -f serviceNodePort.yaml      
+service/postgres configured
+```bash
+Miage_02\PPD\noops\generateConfigurationFiles\src> kubectl get secrets
+```
+NAME                  TYPE                                  DATA   AGE
+default-token-xbrdt   kubernetes.io/service-account-token   3      87m
+postgres-secret       kubernetes.io/basic-auth              1      73m
+```bash
+Miage_02\PPD\noops\generateConfigurationFiles\src> kubectl get PersistentVolumes
+```
+NAME                 CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                       STORAGECLASS   REASON   AGE
+postgres-pv-volume   10Gi       RWO            Retain           Bound    default/postgres-pv-claim   manual                  72m
+NAME                STATUS   VOLUME               CAPACITY   ACCESS MODES   STORAGECLASS   AGE
+postgres-pv-claim   Bound    postgres-pv-volume   10Gi       RWO            manual         73m
+
+```bash
+Miage_02\PPD\noops\generateConfigurationFiles\src> kubectl get deployments
+```
+NAME       READY   UP-TO-DATE   AVAILABLE   AGE
+postgres   0/1     1            0           110s
+
+```bash
+Miage_02\PPD\noops\generateConfigurationFiles\src> kubectl get services
+```
+NAME         TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE
+kubernetes   ClusterIP   10.96.0.1        <none>        443/TCP          88m
+postgres     NodePort    10.109.117.184   <none>        5432:31283/TCP   90s
+
+```bash
+Miage_02\PPD\noops\generateConfigurationFiles\src> kubectl get pods
+```
+NAME                        READY   STATUS             RESTARTS      AGE
+postgres-74f5b69cdc-djcdj   0/1     CrashLoopBackOff   3 (28s ago)   2m12s
+  
+```bash
+
+Miage_02\PPD\noops\generateConfigurationFiles\src> kubectl exec --stdin --tty postgres-74f5b69cdc-djcdj -- postgres -ptest1234
+```
+error: unable to upgrade connection: container not found ("postgres")
+Miage_02\PPD\noops\generateConfigurationFiles\src>
+
