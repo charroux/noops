@@ -1,12 +1,12 @@
-#  Déploiment  d'un conteneur  Postgres dans un cluster Kubernetes
+#  Déploiement  d'un conteneur  Postgres dans un cluster Kubernetes
 
-## 1) Déploi du serveur Postgres 
+## 1) Déploiement du serveur Postgresql 
 ###Prérequis
 ```bash
 minikube start
 ```
 
-### Descri des  des fichiers  :
+### Description des fichiers  :
 
 #### postges-secret.yaml 
 Ce fichier définit le mot de passe qui sera utilisé lors de la connexion au serveur  Postgres.
@@ -19,8 +19,8 @@ Ce fichier définit  le conteneur postgres à lancer sur  le cluster kubernetes
 ```bash
 kubectl apply -f deploymentApp.yaml
 ```
-### Création de service 
-Afin de cré le service, il  y a deux fichiers , il est pas necessaire d'exécuter les deux.
+### Création du service 
+Afin de créer le service, il  y a deux fichiers , il n'est pas nécessaire d'exécuter les deux.
 
 #### Le service de type ClusterIP 
 Le fichier serviceClusterIp.yaml crée un service 'postgres' qui est uniquement accessible dans le cluster.
@@ -33,7 +33,7 @@ Le fichier serviceNodePort.yaml crée un service 'postgres' qui est accessible �
 Kubertl apply -f serviceNodePort.yaml
 ```
 
-## 2) Vérification des  configuras
+## 2) Vérification des  configurations
 ```bash
 
   kubectl get secrets
@@ -46,7 +46,7 @@ Kubertl apply -f serviceNodePort.yaml
 ```bash
 bectl exec --stdin --tty my-service-6df765865-b7pp6 -- postgres -ptest1234
 ```
-Apré l'exécution de cette commande nous avons un bug 
+Aprés l'exécution de cette commande nous avons un bug 
 
 ### Excecution des commandes et l'erreur obtenu : 
 ```bash
