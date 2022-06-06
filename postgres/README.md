@@ -11,21 +11,28 @@ minikube start
 #### postges-secret.yaml 
 Ce fichier définit le mot de passe qui sera utilisé lors de la connexion au serveur  Postgres.
 ```bash 
-kubectl apply -f secret.yaml
+kubectl apply -f postges-secret.yaml
 ```
+
+#### postges-storage.yaml 
+Ce fichier définit le stockage du cluster Postgres.
+```bash 
+kubectl apply -f postges-storage.yaml
+```
+
 
 ####  postgres-deployment.yaml
 Ce fichier définit  le conteneur postgres à lancer sur  le cluster kubernetes
 ```bash
-kubectl apply -f deploymentApp.yaml
+kubectl apply -f postgres-deployment.yaml
 ```
 ### Création du service 
 Afin de créer le service, il  y a deux fichiers , il n'est pas nécessaire d'exécuter les deux.
 
 #### Le service de type ClusterIP 
-Le fichier serviceClusterIp.yaml crée un service 'postgres' qui est uniquement accessible dans le cluster.
+Le fichier postgres-service.yaml crée un service 'postgres' qui est uniquement accessible dans le cluster.
 ```bash 
-kubectl apply -f serviceClusterIP.yaml
+kubectl apply -f postgres-service.yaml
 ```
 #### Le service de type NodePort 
 Le fichier serviceNodePort.yaml crée un service 'postgres' qui est accessible à la fois à l'intérieur et à l'extérieur du cluster. 
@@ -44,7 +51,7 @@ Kubertl apply -f serviceNodePort.yaml
   ```
 ## 3) Connexion au serveur Postgres :
 ```bash
-bectl exec --stdin --tty my-service-6df765865-b7pp6 -- postgres -ptest1234
+kubectl exec --stdin --tty <Pod_Name> -- postgres -ptest1234
 ```
 Aprés l'exécution de cette commande nous avons un bug 
 
@@ -107,3 +114,23 @@ postgres-74f5b69cdc-djcdj   0/1     CrashLoopBackOff   3 (28s ago)   2m12s
 Miage_02\PPD\noops\generateConfigurationFiles\src> kubectl exec --stdin --tty postgres-74f5b69cdc-djcdj -- postgres -ptest1234
 ```
 error: unable to upgrade connection: container not found ("postgres")
+
+## Identificartion de l'erreur : 
+Absence du fichier de configuration configmap.yaml
+```bash
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-config
+  labels:
+    app: postgres
+data:
+  POSTGRES_DB: postgresdb
+  POSTGRES_USER: postgresadmin
+  POSTGRES_PASSWORD: admin123
+```
+
+## commande de connexion au pod postgres :
+```bash
+  kubectl exec -it postgres-5cb8b67d8f-d97gm -- psql -U postgres
+```
