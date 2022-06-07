@@ -16,7 +16,7 @@ public class UtilServiceNodePort {
 		+ "  labels: \n"
 		+ "    app: "+nom+"\n"
 		+ "spec:\n"
-		+ "  type: nodePort\n"
+		+ "  type: NodePort\n"
 		+ "  ports:\n"
 		+ "   - port: "+port+"\n"
 		+ "  selector:\n"
